@@ -7,10 +7,17 @@
     const int deck_size = 52;
     int deck[deck_size];
 
+    int player_max_card[11];
+    int dealer_max_card[11];
+
+    int player_card_count = 0;
+    int dealer_card_count = 0;
+
+    int deck_index = 0;
+
     enum suits{club, diamond, heart, spade};
     enum Rank {
         ace,
-        one,
         two,
         three,
         four,
@@ -19,7 +26,8 @@
         seven,
         eight,
         nine,
-        joker,
+        ten,
+        jack,
         queen,
         king,
     };
@@ -53,68 +61,101 @@
         int suit = index / 13;
 
         switch(rank){
-            case 0:
+            case ace:
                 cout << "Ace of";
                 break;
-            case 1:
-                cout << "One of";
-                break;
-            case 2:
+            case two:
                 cout << "Two of";
                 break;
-            case 3:
+            case three:
                 cout << "Three of";
                 break;
-            case 4:
+            case four:
                 cout << "Four of";
                 break;
-            case 5:
+            case five:
                 cout << "Five of";
                 break;
-            case 6:
+            case six:
                 cout << "Six of";
                 break;
-            case 7:
+            case seven:
                 cout << "Seven of";
                 break;
-            case 8:
+            case eight:
                 cout << "Eight of";
                 break;
-            case 9:
+            case nine:
                 cout << "Nine of";
                 break;
-            case 10:
+            case ten:
+                cout << "Ten of";
+                break;
+            case jack:
                 cout << "Jack of";
                 break;
-            case 11:
+            case queen:
                 cout << "Queen of";
                 break;
-            case 12:
+            case king:
                 cout << "King of";
                 break;
         }
 
         switch(suit){
             case 0:
-                cout << " clubs";
+                cout << " Clubs ♣";
                 break;
             case 1:
-                cout << " diamonds";
+                cout << " Diamonds ♦";
                 break;
             case 2:
-                cout << " hearts";
+                cout << " Hearts ♥";
                 break;
             case 3:
-                cout << " spades";
+                cout << " Spades ♠";
                 break;
         }
 
     }
+    int card_value(int current_card){
+        int rank = current_card % 13;
+        switch(rank){
+            case ace:
+                return 11;
+            case two:
+                return 2;
+            case three:
+                return 3;
+            case four:
+                return 4;
+            case five:
+                return 5;
+            case six:
+                return 6;
+            case seven:
+                return 7;
+            case eight:
+                return 8;
+            case nine:
+                return 9;
+            case ten:
+            case jack:
+            case queen:
+            case king:
+                return 10;
+        }return 0;
+    }
+
+    int calculate_hand(int index, int count){
+        
+    }
+    
 
     int main(){
-        int i = 0;
         Initialize_Deck();
         shuffle_deck();
         pick_a_card(deck[0]);
+        card_value(deck[0]);
         return 0;
     }
