@@ -19,10 +19,9 @@
         seven,
         eight,
         nine,
-        ten,
-        eleven,
-        twelve,
-        thirdteen
+        joker,
+        queen,
+        king,
     };
 
     void Initialize_Deck(){
@@ -49,12 +48,73 @@
         }
     }
 
+    void pick_a_card(int index){
+        int rank = index % 13;
+        int suit = index / 13;
 
+        switch(rank){
+            case 0:
+                cout << "Ace of";
+                break;
+            case 1:
+                cout << "One of";
+                break;
+            case 2:
+                cout << "Two of";
+                break;
+            case 3:
+                cout << "Three of";
+                break;
+            case 4:
+                cout << "Four of";
+                break;
+            case 5:
+                cout << "Five of";
+                break;
+            case 6:
+                cout << "Six of";
+                break;
+            case 7:
+                cout << "Seven of";
+                break;
+            case 8:
+                cout << "Eight of";
+                break;
+            case 9:
+                cout << "Nine of";
+                break;
+            case 10:
+                cout << "Jack of";
+                break;
+            case 11:
+                cout << "Queen of";
+                break;
+            case 12:
+                cout << "King of";
+                break;
+        }
+
+        switch(suit){
+            case 0:
+                cout << " clubs";
+                break;
+            case 1:
+                cout << " diamonds";
+                break;
+            case 2:
+                cout << " hearts";
+                break;
+            case 3:
+                cout << " spades";
+                break;
+        }
+
+    }
 
     int main(){
+        int i = 0;
         Initialize_Deck();
         shuffle_deck();
-        Rank rank = one;
-        cout << rank;
+        pick_a_card(deck[0]);
         return 0;
     }
