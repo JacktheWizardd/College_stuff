@@ -34,9 +34,12 @@
                 height = h;
             }
 
+            //friend functions
+            
+            
     };
 
 int main(){
-  
+    
     return 0;
 }
